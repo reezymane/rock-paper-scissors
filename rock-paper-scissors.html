@@ -23,6 +23,13 @@
                 }
             }
 
+            let winTally = 0;
+            let lossTally = 0;
+
+            let overallWin = `You win the game with a score of ${winTally} to ${lossTally}!`;
+            let overallLose = `Computer wins the game with a score of ${lossTally} to ${winTally}!`;
+            let tieGame = `It's a tie game! Player and Computer both scored ${winTally}!`;
+            
             function game() {
                 for (let i = 0; i < 5; i++) {
                     const playerSelection = prompt('Rock, paper, or scissors? Make your choice!').toLowerCase();
@@ -33,13 +40,6 @@
                     const win = 'You win! ' + playerSelection + ' beats ' + computerSelection + '!';
                     const lose = 'You lose! ' + computerSelection + ' beats ' + playerSelection + '!';
                     const tie = 'It\'s a tie! Play again!';
-
-                    let winTally = 0;
-                    let lossTally = 0;
-
-                    let overallWin = `You win the game with a score of ${winTally} to ${lossTally}!`;
-                    let overallLose = `Computer wins the game with a score of ${lossTally} to ${winTally}!`;
-                    let tieGame = `It's a tie game! Player and Computer both scored ${winTally}!`;
 
                     function playRound(playerSelection, computerSelection) {
 
