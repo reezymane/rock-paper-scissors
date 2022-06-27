@@ -23,29 +23,28 @@
                 }
             }
 
-            const playerSelection = 'scissors';
+            const playerSelection = prompt('Rock, paper, or scissors? Make your choice!').toLowerCase();
             const computerSelection = computerPlay();
 
-            console.log(computerSelection);
+            console.log('Computer chose:' , computerSelection);
 
-            const win = 'You win!'
-            const lose = 'You lose!'
-            const tie = 'It\'s a tie! Try again!'
+            const win = 'You win! ' + playerSelection + ' beats ' + computerSelection + '!';
+            const lose = 'You lose! ' + computerSelection + ' beats ' + playerSelection + '!';
+            const tie = 'It\'s a tie! Play again!';
 
             function playRound(playerSelection, computerSelection) {
-                const lowercase = playerSelection.toLowerCase();
 
-                if (lowercase === 'rock' && computerSelection === 'scissors') {
+                if (playerSelection === 'rock' && computerSelection === 'scissors') {
                     return win;
-                }  else if (lowercase === 'scissors' && computerSelection === 'rock') {
+                }  else if (playerSelection === 'scissors' && computerSelection === 'rock') {
                     return lose;
-                }  else if (lowercase === 'paper' && computerSelection === 'rock') {
+                }  else if (playerSelection === 'paper' && computerSelection === 'rock') {
                     return win;
-                }  else if (lowercase === 'rock' && computerSelection === 'paper') {
+                }  else if (playerSelection === 'rock' && computerSelection === 'paper') {
                     return lose;
-                }  else if (lowercase === 'scissors' && computerSelection === 'paper') {
+                }  else if (playerSelection === 'scissors' && computerSelection === 'paper') {
                     return win;
-                }  else if (lowercase === 'paper' && computerSelection === 'scissors') {
+                }  else if (playerSelection === 'paper' && computerSelection === 'scissors') {
                     return lose;
                 }  else {
                     return tie;
@@ -53,14 +52,14 @@
             }
 
             let winTally = 0;
-            let loseTally = 0;
+            let lossTally = 0;
 
             function game() {
                 for (let i = 0; i < 5; i++) {
                     if (playRound(playerSelection, computerSelection) === win) {
                         winTally = winTally++;
                     }  else if (playRound(playerSelection, computerSelection) === lose) {
-                        loseTally = loseTally++;
+                        lossTally = lossTally++;
                     }  else {
                         continue;
                     }
