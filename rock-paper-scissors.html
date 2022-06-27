@@ -7,7 +7,26 @@
 
     <body>
         <script>
-            
+            function computerPlay() {
+                while (true) {
+                    const selection = Math.floor(Math.random() * 10)
+
+                    if (selection === 0) {
+                        continue;
+                    }  else if (selection < 4) {
+                        return 'rock';
+                    }  else if (selection < 7) {
+                        return 'paper';
+                    }  else {
+                        return 'scissors';
+                    }
+                }
+            }
+
+            const playerSelection = 'rock';
+            const computerSelection = computerPlay();
+
+            console.log(computerSelection);
         </script>
     </body>
 </html>
