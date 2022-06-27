@@ -22,15 +22,14 @@
                     }
                 }
             }
-
-            let winTally = 0;
-            let lossTally = 0;
-
-            let overallWin = `You win the game with a score of ${winTally} to ${lossTally}!`;
-            let overallLose = `Computer wins the game with a score of ${lossTally} to ${winTally}!`;
-            let tieGame = `It's a tie game! Player and Computer both scored ${winTally}!`;
+            
+            
             
             function game() {
+
+                let winTally = 0;
+                let lossTally = 0;
+
                 for (let i = 0; i < 5; i++) {
                     const playerSelection = prompt('Rock, paper, or scissors? Make your choice!').toLowerCase();
                     const computerSelection = computerPlay();
@@ -44,16 +43,22 @@
                     function playRound(playerSelection, computerSelection) {
 
                         if (playerSelection === 'rock' && computerSelection === 'scissors') {
+                            winTally = winTally + 1;
                             return win;
                         }  else if (playerSelection === 'scissors' && computerSelection === 'rock') {
+                            lossTally = lossTally + 1;
                             return lose;
                         }  else if (playerSelection === 'paper' && computerSelection === 'rock') {
+                            winTally = winTally + 1;
                             return win;
                         }  else if (playerSelection === 'rock' && computerSelection === 'paper') {
+                            lossTally = lossTally + 1;
                             return lose;
                         }  else if (playerSelection === 'scissors' && computerSelection === 'paper') {
+                            winTally = winTally + 1;
                             return win;
                         }  else if (playerSelection === 'paper' && computerSelection === 'scissors') {
+                            lossTally = lossTally + 1;
                             return lose;
                         }  else {
                             return tie;
@@ -61,23 +66,18 @@
                     }
 
                     console.log(playRound(playerSelection, computerSelection));
-
-                
-                    if (playRound(playerSelection, computerSelection) === win) {
-                        winTally = winTally++;
-                    }  else if (playRound(playerSelection, computerSelection) === lose) {
-                        lossTally = lossTally++;
-                    }  else {
-                        continue;
-                    }
                 }
+
+                let overallWin = `You win the game with a score of ${winTally} to ${lossTally}!`;
+                let overallLose = `Computer wins the game with a score of ${lossTally} to ${winTally}!`;
+                let overallTie = `It's a tie game! Player and Computer both scored ${winTally}!`;
 
                 if (winTally > lossTally) {
                     return overallWin;
                 } else if (lossTally > winTally) {
                     return overallLose;
                 } else {
-                    return tieGame;
+                    return overallTie;
                 }
             }
 
